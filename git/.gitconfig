@@ -1,0 +1,8 @@
+[user]
+	name = Strange
+	email = rivasjoaquin02@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+    	editor = nvim
+[init]
+	defaultBranch = main
