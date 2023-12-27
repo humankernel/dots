@@ -2,5 +2,6 @@ base-devel
 wget
 git
 openssh
+keychain
 neovim
 fish
