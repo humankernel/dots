@@ -1,0 +1,6 @@
+base-devel
+wget
+git
+openssh
+neovim
+fish
