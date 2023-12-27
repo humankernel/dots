@@ -30,7 +30,7 @@ if type -q bat
 end
 
 alias g git
-alias v vim
+alias v nvim
 
 alias netup="sudo systemctl start NetworkManager"
 alias netdown="sudo systemctl stop NetworkManager"
