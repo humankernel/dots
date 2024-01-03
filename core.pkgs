@@ -1,4 +1,5 @@
 base-devel
+unzip
 wget
 git
 openssh

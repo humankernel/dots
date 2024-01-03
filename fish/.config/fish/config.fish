@@ -9,8 +9,8 @@ set --export PATH $BUN_INSTALL/bin $PATH
 # ==================================
 #             ALIASES
 # ==================================
+alias codes "cd /mnt/d/learn/_codes/"
 # for managing .dots with git bare 
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "ls -l"
@@ -49,3 +49,10 @@ set -gx PATH ~/.local/bin $PATH
 if type -q starship
 	starship init fish | source
 end
+
+# pnpm
+set -gx PNPM_HOME "/home/strange/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
