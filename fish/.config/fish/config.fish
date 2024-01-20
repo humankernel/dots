@@ -29,7 +29,14 @@ if type -q bat
     alias cat "bat"
 end
 
-alias g git
+# git 
+alias gi "git init"
+alias gs "git status"
+alias ga "git add"
+alias gc "git commit"
+alias gl "git log"
+alias bc "better-commits"
+
 alias v nvim
 
 alias netup="sudo systemctl start NetworkManager"
