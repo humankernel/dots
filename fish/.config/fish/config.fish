@@ -9,7 +9,6 @@ set --export PATH $BUN_INSTALL/bin $PATH
 # ==================================
 #             ALIASES
 # ==================================
-alias codes "cd /mnt/d/learn/_codes/"
 # for managing .dots with git bare 
 alias ls "ls -p -G"
 alias la "ls -A"
@@ -24,11 +23,6 @@ if type -q exa
     alias lla "exa -la --icons --no-user --group-directories-first  --time-style long-iso -T -L2"
 end
 
-# bat: better cat
-if type -q bat
-    alias cat "bat"
-end
-
 # git 
 alias gi "git init"
 alias gs "git status"
@@ -38,14 +32,10 @@ alias gl "git log"
 alias bc "better-commits"
 
 alias v nvim
-
-alias netup="sudo systemctl start NetworkManager"
-alias netdown="sudo systemctl stop NetworkManager"
-
 # ==================================
 #             PATH
 # ==================================
-set -gx EDITOR vim
+set -gx EDITOR nvim
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
