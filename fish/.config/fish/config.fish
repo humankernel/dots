@@ -10,6 +10,7 @@ set --export PATH $BUN_INSTALL/bin $PATH
 #             ALIASES
 # ==================================
 # for managing .dots with git bare 
+alias xclip "xclip -i -selection clipboard"
 alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "ls -l"
