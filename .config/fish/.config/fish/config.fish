@@ -1,16 +1,25 @@
 set fish_greeting ""
-#fish_vi_key_bindings
 set -gx TERM xterm-256color
-
-# bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
+#fish_vi_key_bindings
 
 # ==================================
 #             ALIASES
 # ==================================
-# for managing .dots with git bare 
+alias v nvim
+
+# git 
+alias gi "git init"
+alias gs "git status"
+alias ga "git add"
+alias gc "git commit"
+alias gl "git log"
+if type -q better-commits
+    alias bc "better-commits"
+end 
+
 alias xclip "xclip -i -selection clipboard"
+
+# ls
 alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "ls -l"
@@ -24,15 +33,6 @@ if type -q exa
     alias lla "exa -la --icons --no-user --group-directories-first  --time-style long-iso -T -L2"
 end
 
-# git 
-alias gi "git init"
-alias gs "git status"
-alias ga "git add"
-alias gc "git commit"
-alias gl "git log"
-alias bc "better-commits"
-
-alias v nvim
 # ==================================
 #             PATH
 # ==================================
@@ -47,10 +47,3 @@ set -gx PATH ~/.local/bin $PATH
 if type -q starship
 	starship init fish | source
 end
-
-# pnpm
-set -gx PNPM_HOME "/home/strange/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end

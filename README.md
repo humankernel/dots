@@ -1,5 +1,9 @@
 # dotfiles
 
+[install](docs/install.md)
+[post-install](docs/postinstall.md)
+[maintenance](docs/maintenance.md)
+
 ## Github SSH
 
 ```sh            
