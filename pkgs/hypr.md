@@ -1,4 +1,3 @@
-
 # Hyperland
 
 [Must Have - Docs](https://wiki.hyprland.org/Useful-Utilities/Must-have/)

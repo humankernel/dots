@@ -1,11 +1,6 @@
----
-tags:
-  - archinstall
-  - archlinux
-url: https://wiki.archlinux.org/title/installation_guide
-iso: http://repos.uo.edu.cu/archlinux/iso/latest/
----
 # Arch Linux - Install Guide
+[Arch Wiki](https://wiki.archlinux.org/title/installation_guide)
+[Arch ISO](http://repos.uo.edu.cu/archlinux/iso/latest/)
 
 ## Pre-install
 
