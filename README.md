@@ -1,4 +1,4 @@
-# strangedevel - dotfiles
+# dotfiles
 
 # Get Started
 
