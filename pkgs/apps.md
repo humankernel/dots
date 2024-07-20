@@ -1,24 +1,26 @@
----
-tags:
-  - archlinux
-  - pkgs
----
-
 ## Apps
 
 **DEV**
 
-|             | windows                                     | linux                                    |
-| ----------- | ------------------------------------------- | ---------------------------------------- |
-| vscode      | ~95mb                                       |                                          |
-|             | `winget install Microsoft.VisualStudioCode` | `yay -S visual-studio-code-bin`          |
-| datagrip    |                                             |                                          |
-|             | `winget install JetBrains.DataGrip`         | `yay -S datagrip`                        |
-| nvim        |                                             | `sudo pacman -S neovim`                  |
-| text editor |                                             | `pacman -S gnome-text-editor`            |
-| git         | `winget install GitHub.GitHubDesktop`       |                                          |
-| terminal    | `winget install Microsoft.WindowsTerminal`  | `pacman -S wezterm`<br>warp-terminal     |
-| shell       |                                             | `pacman -S fish`<br>`pacman -S starship` |
+|       |                                |
+| ----- | ------------------------------ |
+|       | warp-terminal                  |
+|       | `neovim`                       |
+|       | `visual-studio-code-bin` [AUR] |
+| sql   | `datagrip` [AUR]               |
+| shell | `fish`                         |
+|       | `starship`                     |
+|       | `wezterm`                      |
+
+|             |                                             |
+| ----------- | ------------------------------------------- |
+| vscode      | `winget install Microsoft.VisualStudioCode` |
+| sql         | `winget install JetBrains.DataGrip`         |
+| nvim        |                                             |
+| text editor |                                             |
+| git         | `winget install GitHub.GitHubDesktop`       |
+| terminal    | `winget install Microsoft.WindowsTerminal`  |
+| shell       |                                             |
 
 
 **CONTAINERS**

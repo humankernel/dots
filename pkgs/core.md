@@ -1,6 +1,6 @@
 # Core Pkgs
 
-| pkg                 | description                                                     |
+| | |
 | ------------------- | --------------------------------------------------------------- |
 | `base`              | Base System                                                     |
 | `linux-lts`         | Stable Kernel                                                   |
@@ -9,18 +9,16 @@
 | `intel-ucode`       | microcode for intel processor                                   |
 | `base-devel`        | Group of packages useful for building and compiling from source |
 
-**network**
 
-| pkg                      | description     |
+| network                  |                 |
 | ------------------------ | --------------- |
 | `networkmanager`         | network manager |
 | `network-manager-applet` | nm tray         |
 | netctl                   |                 |
 | ldns                     |                 |
 
-**bootloader**
 
-| pkg          | description            |
+| bootloader          |             |
 | ------------ | ---------------------- |
 | `grub`       |                        |
 | `efibootmgr` |                        |
@@ -28,9 +26,8 @@
 | `dosfstools` |                        |
 | `mtools`     |                        |
 
-**audio**
 
-| pkg                   | description            |
+| audio                   |             |
 | --------------------- | ---------------------- |
 | `pipewire`            | audio and video server |
 | `wireplumber`         | audio and video server |
@@ -42,25 +39,22 @@
 | `pavucontrol`         | audio settings gui     |
 | `pamixer`             | for **waybar** audio   |
 
-**fonts**
 
-| pkg                    | description |
+| fonts                    |  |
 | ---------------------- | ----------- |
 | `gnu-free-fonts`       |             |
 | `noto-fonts`           |             |
 | `ttf-maple-font` [AUR] |             |
 
-**theme**
 
-| pkg        | description      |
+| theme        |      |
 | ---------- | ---------------- |
 | `nwg-look` | theming GTK apps |
 | `kvantum`  | theming QT apps  |
 | `qt5ct`    | theming QT5 apps |
 
-**extra deps**
 
-| pkg                           | description                   |
+| extra deps                           |                    |
 | ----------------------------- | ----------------------------- |
 | `pacman-contrib`              | for system update check       |
 | `parallel`                    | for parallel processing       |
@@ -71,10 +65,9 @@
 | `man-db`                      |                               |
 | `man-pages`                   |                               |
 
-**nvidia**
 
-| pkg            | desc                                                                               |
-| -------------- | ---------------------------------------------------------------------------------- |
+| nvidia            |    |
+| -------------- | ---------------------------------------------------------------- |
 | `nvidia-dkms`  | nvidia drivers (script will auto detect from lspci -k \| grep -A 2 -E "(VGA\|3D)") |
 | `nvidia-utils` | nvidia utils (script will auto detect from lspci -k \| grep -A 2 -E "(VGA\|3D)")   |
 
