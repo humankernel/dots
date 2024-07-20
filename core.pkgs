@@ -1,8 +1,0 @@
-base-devel
-unzip
-wget
-git
-openssh
-keychain
-neovim
-fish

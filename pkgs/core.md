@@ -77,3 +77,16 @@
 | -------------- | ---------------------------------------------------------------------------------- |
 | `nvidia-dkms`  | nvidia drivers (script will auto detect from lspci -k \| grep -A 2 -E "(VGA\|3D)") |
 | `nvidia-utils` | nvidia utils (script will auto detect from lspci -k \| grep -A 2 -E "(VGA\|3D)")   |
+
+
+
+unzip
+wget
+openssh
+keychain
+vim
+neovim
+fish
+starship
+exa
+btop
