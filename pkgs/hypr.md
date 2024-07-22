@@ -5,7 +5,7 @@
 | pkg                           | description                                                          |
 | ----------------------------- | -------------------------------------------------------------------- |
 | `hyprland`                    | main window manager (hyprland-nvidia-git if nvidia card is detected) |
-| `dunst`                       | notification daemon                                                  |
+| `dunst`                       | [notification daemon](https://wiki.hyprland.org/Useful-Utilities/Must-have/#a-notification-daemon)                                                  |
 | `rofi-lbonn-wayland-git`      | app launcher, d-menu                                                 |
 | `waybar-hyprland-git`         | status bar                                                           |
 | swaylock-effects-git          |                                                                      |
