@@ -12,26 +12,16 @@
 | `qt5-wayland`, `qt6-wayland`  | Qt Wayland Support                                                   |
 | `waybar`                      | [status bar](https://wiki.hyprland.org/Useful-Utilities/Status-Bars/#waybar)  |
 | `rofi-wayland`                | [app launcher, d-menu](https://wiki.hyprland.org/Useful-Utilities/App-Launchers/#rofi-wayland-fork) |
+| `hyprpicker`                  | Color Picker                                                         |
+| `wl-clipboard`                |                                                                      |
+| `clipse`                      | [Configurable TUI clipboard manager for Unix](https://wiki.hyprland.org/Useful-Utilities/Clipboard-Managers/#clipse) |
+| `udiskie`                     | [Automatically Mounting](https://wiki.hyprland.org/Useful-Utilities/Other/#automatically-mounting-using-udiskie)      |
+| `sddm`                         | display manager for login                                            |
 | swaylock-effects-git          |                                                                      |
 | `wlogout`                     | Logout menu for wayland                                              |
 | `grimblast-git`               | screenshot tool                                                      |
 | `slurp`                       | selects region for screenshot/screenshare                            |
 | `swappy`                      | screenshot editor                                                    |
-| `cliphist`                    | clipboard manager                                                    |
-| `hyprpicker`                  | Color Picker                                                         |
-
-
-
-**login**
-
-|               |                           |
-| ------------- | ------------------------- |
-| `gdm`         | display manager for login |
-| `qt5-wayland` | for QT wayland XDP        |
-| `qt6-wayland` | for QT wayland XDP        |
-
-
-
 
 | pkg                           | description                                                      |
 | ----------------------------- | ---------------------------------------------------------------- |
@@ -39,4 +29,3 @@
 | `tlp`                         | energy saving                                                    |
 | libva                         | Video Acceleration (VA) API for Linux                            |
 | libva-nvidia-driver-git [AUR] | VA-API implementation that uses NVDEC as a backend (git version) |
-| gvfs                          | Virtual filesystem implementation for GIO                        |
