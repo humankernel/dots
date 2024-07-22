@@ -1,6 +1,6 @@
 # dotfiles
 
-[install](docs/install.md)
+[install](https://gist.github.com/mjkstra/96ce7a5689d753e7a6bdd92cdc169bae#set-up-the-language-and-tty-keyboard-map)
 [post-install](docs/postinstall.md)
 [maintenance](docs/maintenance.md)
 
