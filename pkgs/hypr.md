@@ -18,7 +18,7 @@
 | `slurp`                       | selects region for screenshot/screenshare                            |
 | `swappy`                      | screenshot editor                                                    |
 | `cliphist`                    | clipboard manager                                                    |
-
+| `hyprpicker`                  | Color Picker                                                         |
 
 
 
