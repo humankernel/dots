@@ -1,0 +1,39 @@
+- name: Optimize Battery Life (tlp)
+  become: yes
+  pacman: 
+    name: tlp
+    state: present
+  when: ansible_distribution == "Archlinux"
+  tags: battery
+
+- name: Enable TLP Service
+  become: yes
+  ansible.builtin.systemd:
+    name: tlp
+    state: started
+    enabled: yes
+  tags: battery
+
+- name: Enable TLP
+  become: yes
+  ansible.builtin.shell: tlp start
+  args:
+    executable: /bin/bash
+  tags: battery
+
+- name: Video Acceleration
+  become: yes
+  pacman: 
+    name: libva # Video Acceleration (VA) API for Linux
+    state: present
+  when: ansible_distribution == "Archlinux"
+  tags: video-acceleration
+
+- name: Video Acceleration (nvidia)
+  become: yes
+  pacman: 
+    name: libva-nvidia-driver-git
+    state: present
+    executable: yay 
+    extra_args: --builddir /var/cache/yay
+  tags: video-acceleration

@@ -1,0 +1,33 @@
+[user]
+	name = humankernel
+	email = rivasjoaquin02@gmail.com
+
+[core]
+    editor = nvim
+	excludesfile = ~/.gitignore_global
+
+[alias]
+	s = status -s
+	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%C(blue)%x20(%ce)%x20%C(cyan)[gpg:%GK%x20%G?]%C(reset)%n%x20%s%n"
+	lg = log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	contributors = shortlog -n -s
+	remotes = remote -v
+
+[init]
+	defaultBranch = main
+
+# [diff]
+#   tool = icdiff
+
+[pretty]
+  custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+  #                     │        │            │            │             └─ author name
+  #                     │        │            │            └─ message
+  #                     │        │            └─ date (relative)
+  #                     │        └─ decorations (branch, heads or tags)
+  #                     └─ hash (abbreviated)
+
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true

@@ -1,0 +1,58 @@
+
+vars:
+  dotfiles: "{{ lookup('env', 'HOME') }}/.dots/home"
+  config: "{{ lookup('env', 'HOME') }}"
+
+- name: Install base-devel 
+  become: yes
+  pacman: 
+    name: base-devel
+    state: present
+  tags: core
+
+
+- name: Install git, stow
+  become: yes
+  pacman: 
+    name: 
+      - git
+      - stow      # for managing symlinks
+    state: present
+  tags: 
+    - core
+    - git 
+  
+- name: Setup git
+  shell: 'stow -d {{ dotfiles }}/git -t ~/{{ config }}'
+
+
+
+# see: https://github.com/ibraheemdev/modern-unix
+- name: Install GNU tools
+  become: yes
+  pacman:
+    name: 
+      - fzf       # fuzzy finder
+      - ripgrep   # grep
+      - bat       # cat
+      - btop      # top
+      - eza       # ls
+      - man-db
+      - tldr      # man
+      - gping     # ping 
+      # - hyperfine # benchmarking tool
+      # - dust      # du (file-tree size) 
+      # - duf       # df (file system manager)
+      # - broot     # tree
+      # - mcfly     # history
+    state: present
+  tags: core
+
+# - name: Install `cheat` (cheatsheets)
+#   become: yes
+#   pacman: 
+#     name: cheat # interactive cheatsheets
+#     state: present
+#     executable: yay 
+#     extra_args: --builddir /var/cache/yay
+#   tags: core

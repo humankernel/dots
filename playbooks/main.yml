@@ -1,0 +1,30 @@
+- hosts: localhost
+  become: true
+  pre_tasks:
+    - name: Update packages "pacman -Syu"
+      pacman:
+        update_cache: true
+        upgrade: true
+      tags:
+        - core  # 19mb - fzf rg bat btop eza man tldr gping
+        - aur   #   mb - yay
+        - fish  # 5mb  - fish starship
+        - nvim  # 8mb  - nvim
+        - ssh   # 6mb  - openssh
+
+        - node  
+        - browser  # 169mb - epiphany edge
+        # - battery  
+        # - video-acceleration
+        # - hyprland
+  tasks:
+    - include_tasks: core.yml
+    - include_tasks: aur.yml
+    - include_tasks: fish.yml
+    - include_tasks: nvim.yml
+    - include_tasks: ssh.yml
+
+    - include_tasks: node.yml
+    - include_tasks: browser.yml
+    - include_tasks: optimize.yml
+    # - include_tasks: hyprland.yml

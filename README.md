@@ -4,6 +4,24 @@
 [post-install](docs/postinstall.md)
 [maintenance](docs/maintenance.md)
 
+## Getting Started
+
+**1. Install Ansible**
+
+```sh
+sudo pacman -S ansible git
+```
+
+**2. Clone dotfiles**
+```sh
+git clone https://github.com/humankernel/dots ~/.dotfiles
+```
+
+**3. Run ansible-playbooks**
+```sh
+ansible-playbook --ask-become playbooks/main.yml
+```
+
 ## Github SSH
 
 ```sh            

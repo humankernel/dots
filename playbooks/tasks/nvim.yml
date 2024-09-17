@@ -1,0 +1,29 @@
+
+vars:
+  dotfiles: "{{ lookup('env', 'HOME') }}/.dots/home"
+  config: "{{ lookup('env', 'HOME') }}"
+
+- name: Ensure essentials
+  become: yes
+  pacman: 
+    name: 
+      - git    
+      - unzip  
+      - wget   
+      - make   
+      - gcc    
+      - ripgrep
+    state: present
+  when: ansible_distribution == "Archlinux"
+  tags: nvim
+
+- name: Install nvim
+  become: yes
+  pacman:
+    name: nvim
+    state: present
+  when: ansible_distribution == "Archlinux"
+  tags: nvim
+
+- name: Symlink nvim dotfiles
+  shell: 'stow -d {{ dotfiles }}/nvim -t ~/{{ config }}'

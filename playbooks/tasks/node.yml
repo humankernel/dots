@@ -1,0 +1,23 @@
+- name: Install Nodejs
+  become: yes
+  pacman:
+    name: 
+      - nodejs
+      - npm
+    state: present
+  when: ansible_distribution == "Archlinux"
+  tags: node
+
+- name: Install n
+  npm: 
+    name: n
+    global: true
+  tags: node
+
+- name: Install Nodejs latest
+  shell: n latest
+  tags: node
+
+- name: Install Bun
+  shell: 'curl -fsSL https://bun.sh/install | bash'
+  tags: bun

@@ -35,14 +35,3 @@ git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si
 yay -Syu
-
-
-
-# or
-pacman -S go #this is for avoid install from the AUR
-
-git clone https://aur.archlinux.org/yay-git.git
-cd yay-git
-makepkg -si
-yay -Syu
-```
