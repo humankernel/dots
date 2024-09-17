@@ -1,9 +1,7 @@
-- name: Install git, base-devel 
+- name: Install base-devel 
   become: yes
   pacman: 
-    name:
-      - git 
-      - base-devel
+    name: base-devel
     state: present
   tags: core
 
