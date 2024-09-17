@@ -1,0 +1,13 @@
+- name: Install Fish
+  become: yes
+  ansible.builtin.apt:
+    name: fish
+    state: present
+
+- name: Install Starship
+  shell: curl -sS https://starship.rs/install.sh | sh -s -- -y
+  args:
+    creates: ~/.cargo/bin/starship
+  tags:
+    - fish 
+    - starship

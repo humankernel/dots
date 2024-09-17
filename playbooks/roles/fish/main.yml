@@ -1,0 +1,15 @@
+- name: Install Fish in Archlinux
+  include_tasks: archlinux.yml
+  when: ansible_distribution == "Archlinux"
+  tags: fish
+
+- name: Build Fish from source in Ubuntu
+  import_tasks: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+  tags: fish
+
+- name: Symlink Fish dotfiles
+  shell: 'stow -d ~/.dotfiles/home/fish -t {{ ansible_env.HOME }} --verbose=2'
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
+  tags: fish

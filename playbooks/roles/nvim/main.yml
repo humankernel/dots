@@ -1,0 +1,20 @@
+- name: Install NeoVim in Archlinux
+  include_tasks: archlinux.yml
+  when: ansible_distribution == "Archlinux"
+  tags: nvim
+
+- name: Build NeoVim from source in Ubuntu
+  import_tasks: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+  tags: nvim
+
+- name: Install NeoVim in Windows
+  import_tasks: windows.yml
+  when: ansible_distribution == "Windows"
+  tags: nvim
+
+- name: Symlink NeoVim dotfiles
+  shell: 'stow -d ./home/nvim -t {{ ansible_env.HOME }} --verbose=2'
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
+  tags: nvim

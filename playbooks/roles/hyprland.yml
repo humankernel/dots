@@ -12,8 +12,11 @@ vars:
   when: ansible_distribution == "Archlinux"
   tags: hyprland
 
-- name: Symlink Hyprland dotfiles 
-  shell: 'stow -d {{ dotfiles }}/hypr -t ~/{{ config }}'
+- name: Symlink Hyprland dotfiles
+  shell: 'stow -d ./home/hypr -t {{ ansible_env.HOME }} --verbose=2'
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
+  tags: hyperland
 
 
 
@@ -26,10 +29,11 @@ vars:
   when: ansible_distribution == "Archlinux"
   tags: hyprland
 
-- name: Symlink dunst dotfiles 
-  shell: 'stow -d {{ dotfiles }}/dunst -t ~/{{ config }}'
-
-
+- name: Symlink dunst dotfiles
+  shell: 'stow -d ./home/dunst -t {{ ansible_env.HOME }} --verbose=2'
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
+  tags: hyprland
 
 # see: https://wiki.hyprland.org/Useful-Utilities/Must-have/#xdg-desktop-portal
 - name: Install Desktop Portal (xdg-desktop-portal-hyprland)
@@ -72,9 +76,10 @@ vars:
   tags: hyprland
 
 - name: Symlink Waybar dotfiles
-  shell: 'stow -d {{ dotfiles }}/waybar -t ~/{{ config }}'
-
-
+  shell: 'stow -d ./home/waybar -t {{ ansible_env.HOME }} --verbose=2'
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
+  tags: hyprland
 
 # see: https://wiki.hyprland.org/Useful-Utilities/App-Launchers/#rofi-wayland-fork
 - name: Install App Launcher (rofi-wayland)
@@ -86,8 +91,10 @@ vars:
   tags: hyprland
 
 - name: Symlink rofi dotfiles
-  shell: 'stow -d {{ dotfiles }}/rofi -t ~/{{ config }}'
-
+  shell: 'stow -d ./home/rofi -t {{ ansible_env.HOME }} --verbose=2'
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
+  tags: hyprland
 
 - name: Install Screenshot tools 
   become: yes

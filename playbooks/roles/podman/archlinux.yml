@@ -1,0 +1,5 @@
+- name: Install podman
+  become: yes
+  pacman:
+    name: podman
+    state: present

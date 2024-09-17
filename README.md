@@ -19,7 +19,7 @@ git clone https://github.com/humankernel/dots ~/.dotfiles
 
 **3. Run ansible-playbooks**
 ```sh
-ansible-playbook --ask-become playbooks/main.yml
+ansible-playbook -K playbooks/main.yml
 ```
 
 ## Github SSH

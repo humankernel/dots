@@ -1,0 +1,22 @@
+- name: Install fish, starship
+  become: yes
+  pacman:
+    name:
+      - fish
+      - starship
+    state: present
+  tags: fish
+
+- name: Setup Fish as default shell
+  become: true
+  shell: 'chsh -s $(which fish)'
+  tags: fish
+
+- name: Initialize Starship prompt for Fish
+  lineinfile:
+    path: ~/.config/fish/config.fish 
+    line: 'starship init fish | source'
+    create: yes
+  tags: 
+    - fish 
+    - starship

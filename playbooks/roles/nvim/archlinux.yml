@@ -1,0 +1,17 @@
+- name: Ensure essentials
+  become: yes
+  pacman: 
+    name: 
+      - git    
+      - unzip  
+      - wget   
+      - make   
+      - gcc    
+      - ripgrep
+    state: present
+
+- name: Install nvim
+  become: yes
+  pacman:
+    name: nvim
+    state: present

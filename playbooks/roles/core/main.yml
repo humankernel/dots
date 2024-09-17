@@ -1,0 +1,22 @@
+- name: Install Core Utils in Archlinux
+  include_tasks: archlinux.yml
+  when: ansible_distribution == "Archlinux"
+  tags: core
+
+- name: Install Core Utils in Ubuntu
+  import_tasks: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+  tags: core
+
+- name: Install Core Utils in Windows
+  import_tasks: windows.yml
+  when: ansible_distribution == "Windows"
+  tags: core
+  
+- name: Symlink git dotfiles
+  shell: 'stow -d ./home/git -t {{ ansible_env.HOME }} --verbose=2'
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
+  tags: 
+    - core
+    - git
