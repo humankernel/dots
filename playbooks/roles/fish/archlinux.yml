@@ -16,7 +16,7 @@
   lineinfile:
     path: ~/.config/fish/config.fish 
     line: 'starship init fish | source'
-    create: yes
+    state: present
   tags: 
     - fish 
     - starship
