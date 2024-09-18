@@ -7,12 +7,12 @@
     state: present
   tags: fish
 
-- name: Setup Fish as default shell
+- name: Setup fish as default shell
   become: true
-  shell: 'chsh -s $(which fish)'
+  shell: chsh -s /usr/bin/fish
   tags: fish
 
-- name: Initialize Starship prompt for Fish
+- name: Initialize Starship prompt for fish
   lineinfile:
     path: ~/.config/fish/config.fish 
     line: 'starship init fish | source'
