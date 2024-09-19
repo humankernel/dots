@@ -5,21 +5,18 @@ set -gx TERM xterm-256color
 #             ALIASES
 # ==================================
 
-# vim
 alias v nvim
-#fish_vi_key_bindings
 
-# git 
 alias gi "git init"
 alias gs "git status"
 alias ga "git add"
 alias gc "git commit"
 alias gl "git log"
 
-# screenshot
+if type -q xclip
 alias xclip "xclip -i -selection clipboard"
+end 
 
-# ls
 alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "ls -l"
@@ -35,9 +32,9 @@ end
 #             PATH
 # ==================================
 set -gx EDITOR nvim
-set -gx PATH bin $PATH
-set -gx PATH ~/bin $PATH
-set -gx PATH ~/.local/bin $PATH
+# set -gx PATH bin $PATH
+# set -gx PATH ~/bin $PATH
+# set -gx PATH ~/.local/bin $PATH
 
 # ==================================
 #             AUTOSTART
@@ -45,3 +42,4 @@ set -gx PATH ~/.local/bin $PATH
 if type -q starship
 	starship init fish | source
 end
+starship init fish | source
