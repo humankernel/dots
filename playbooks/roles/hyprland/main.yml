@@ -1,0 +1,28 @@
+- name: Install Hyperland in Archlinux
+  include_tasks: archlinux.yml
+  when: ansible_distribution == "Archlinux"
+  tags: hyperland
+
+- name: Symlink Hyprland dotfiles
+  shell: 'stow -d ~/.dotfiles/home/ -S hypr -t {{ ansible_env.HOME }} --verbose=2 --adopt'
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
+  tags: hyperland
+
+- name: Symlink dunst dotfiles
+  shell: 'stow -d ~/.dotfiles/home/ -S dunst -t {{ ansible_env.HOME }} --verbose=2 --adopt'
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
+  tags: hyprland
+
+- name: Symlink Waybar dotfiles
+  shell: 'stow -d ~/.dotfiles/home/ -S waybar -t {{ ansible_env.HOME }} --verbose=2 --adopt'
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
+  tags: hyprland
+
+- name: Symlink rofi dotfiles
+  shell: 'stow -d ~/.dotfiles/home/ -S rofi -t {{ ansible_env.HOME }} --verbose=2 --adopt'
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'
+  tags: hyprland

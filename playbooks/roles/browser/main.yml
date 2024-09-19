@@ -6,17 +6,9 @@
     - epiphany
     - edge
 
-- name: Build Epiphany, Edge from source in Ubuntu
+- name: Install Epiphany, Edge in Ubuntu
   import_tasks: ubuntu.yml
   when: ansible_distribution == "Ubuntu"
-  tags: 
-    - browser
-    - epiphany
-    - edge
-
-- name: Install Epiphany, Edge in Windows
-  import_tasks: windows.yml
-  when: ansible_distribution == "Windows"
   tags: 
     - browser
     - epiphany

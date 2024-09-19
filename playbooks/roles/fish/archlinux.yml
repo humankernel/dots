@@ -7,11 +7,11 @@
     state: present
   tags: fish
 
-- name: Initialize Starship prompt for fish
-  lineinfile:
-    path: ~/.config/fish/config.fish 
-    line: 'starship init fish | source'
-    state: present
-  tags: 
-    - fish 
-    - starship
+# - name: Initialize Starship prompt for fish
+#   lineinfile:
+#     path: ~/.config/fish/config.fish 
+#     line: 'starship init fish | source'
+#     state: present
+#   tags: 
+#     - fish 
+#     - starship

@@ -2,13 +2,3 @@
   include_tasks: archlinux.yml
   when: ansible_distribution == "Archlinux"
   tags: optimize
-
-- name: Optimize in Ubuntu
-  import_tasks: ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
-  tags: optimize
-
-- name: Optimize in Windows
-  import_tasks: windows.yml
-  when: ansible_distribution == "Windows"
-  tags: optimize

@@ -1,17 +1,16 @@
-- name: Install Epiphany browser
+- name: Install Epiphany
   become: yes
   pacman:
     name: epiphany
     state: present
-  when: ansible_distribution == "Archlinux"
   tags: 
     - browser
     - epiphany
 
-- name: Install Edge browser
+- name: Install Edge (AUR)
   become: yes
   pacman: 
-    name: microsoft-edge-bin # interactive cheatsheets
+    name: microsoft-edge-stable-bin
     state: present
     executable: yay 
     extra_args: --builddir /var/cache/yay

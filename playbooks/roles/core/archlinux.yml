@@ -9,7 +9,9 @@
   ansible.builtin.command: pacman -Qs yay
   register: yay_installed
   ignore_errors: true
-  tags: check_yay
+  tags: 
+    - core
+    - aur
 
 - name: Download yay
   ansible.builtin.git:

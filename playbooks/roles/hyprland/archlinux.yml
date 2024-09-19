@@ -1,24 +1,9 @@
-
-vars:
-  dotfiles: "{{ lookup('env', 'HOME') }}/.dots/home"
-  config: "{{ lookup('env', 'HOME') }}"
-
-
 - name: Install Hyprland
   become: yes
   pacman:
     name: hyprland # hyprland-nvidia-git if nvidia
     state: present
-  when: ansible_distribution == "Archlinux"
   tags: hyprland
-
-- name: Symlink Hyprland dotfiles
-  shell: 'stow -d ./home/hypr -t {{ ansible_env.HOME }} --verbose=2'
-  register: result
-  changed_when: 'result.stderr is search("LINK: ")'
-  tags: hyperland
-
-
 
 # see: https://wiki.hyprland.org/Useful-Utilities/Must-have/#a-notification-daemon
 - name: Install Notification Daemon (dunst)
@@ -26,13 +11,6 @@ vars:
   pacman: 
     name: dunst
     state: present
-  when: ansible_distribution == "Archlinux"
-  tags: hyprland
-
-- name: Symlink dunst dotfiles
-  shell: 'stow -d ./home/dunst -t {{ ansible_env.HOME }} --verbose=2'
-  register: result
-  changed_when: 'result.stderr is search("LINK: ")'
   tags: hyprland
 
 # see: https://wiki.hyprland.org/Useful-Utilities/Must-have/#xdg-desktop-portal
@@ -41,7 +19,6 @@ vars:
   pacman: 
     name: xdg-desktop-portal-hyprland
     state: present
-  when: ansible_distribution == "Archlinux"
   tags: hyprland
 
 # see: https://wiki.hyprland.org/Useful-Utilities/Must-have/#authentication-agent
@@ -50,7 +27,6 @@ vars:
   pacman: 
     name: polkit-kde-agent
     state: present
-  when: ansible_distribution == "Archlinux"
   tags: hyprland
 
 - name: Install Qt Wayland Support
@@ -60,11 +36,7 @@ vars:
       - qt5-wayland
       - qt6-wayland
     state: present
-  when: ansible_distribution == "Archlinux"
   tags: hyprland
-
-
-
 
 # see: https://wiki.hyprland.org/Useful-Utilities/Status-Bars/#waybar
 - name: Install Waybar
@@ -72,14 +44,8 @@ vars:
   pacman: 
     name: waybar
     state: present
-  when: ansible_distribution == "Archlinux"
   tags: hyprland
 
-- name: Symlink Waybar dotfiles
-  shell: 'stow -d ./home/waybar -t {{ ansible_env.HOME }} --verbose=2'
-  register: result
-  changed_when: 'result.stderr is search("LINK: ")'
-  tags: hyprland
 
 # see: https://wiki.hyprland.org/Useful-Utilities/App-Launchers/#rofi-wayland-fork
 - name: Install App Launcher (rofi-wayland)
@@ -87,13 +53,6 @@ vars:
   pacman: 
     name: rofi-wayland
     state: present
-  when: ansible_distribution == "Archlinux"
-  tags: hyprland
-
-- name: Symlink rofi dotfiles
-  shell: 'stow -d ./home/rofi -t {{ ansible_env.HOME }} --verbose=2'
-  register: result
-  changed_when: 'result.stderr is search("LINK: ")'
   tags: hyprland
 
 - name: Install Screenshot tools 
@@ -104,7 +63,6 @@ vars:
       - slurp   # selects region for screenshot/screenshare   
       - swappy    # screenshot editor
     state: present
-  when: ansible_distribution == "Archlinux"
   tags: hyprland
 
 - name: Install Logout Menu (wlogout)
@@ -112,7 +70,6 @@ vars:
   pacman:
     name: wlogout
     state: present
-  when: ansible_distribution == "Archlinux"
   tags: hyprland
 
 # see: https://wiki.hyprland.org/Useful-Utilities/Other/#automatically-mounting-using-udiskie
@@ -121,7 +78,6 @@ vars:
   pacman: 
     name: udiskie
     state: present
-  when: ansible_distribution == "Archlinux"
   tags: hyprland
 
 - name: Install Clipboard Manager
@@ -129,5 +85,4 @@ vars:
   pacman: 
     name: wl-clipboard
     state: present
-  when: ansible_distribution == "Archlinux"
   tags: hyprland

@@ -1,0 +1,51 @@
+- name: Install Epiphany
+  become: yes
+  apt:
+    name: epiphany-browser
+    state: present
+  tags: 
+    - browser
+    - epiphany
+
+- name: Install Essentials for Edge 
+  apt: 
+    name:
+      - software-properties-common
+      - apt-transport-https
+      - curl
+    state: present
+  tags: 
+    - browser
+    - edge
+
+- name: Import GPG Keys from Microsoft
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+  tags: 
+    - browser
+    - edge
+
+- name: Install Microsoft Edge Repository
+  apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main
+    state: present
+  tags: 
+    - browser
+    - edge
+
+- name: Update Packages List
+  apt:
+    update_cache: yes
+  tags: 
+    - browser
+    - edge
+
+- name: Install Edge
+  become: yes
+  apt: 
+    name: microsoft-edge-stable # interactive cheatsheets
+    state: present
+  tags: 
+    - browser
+    - edge

@@ -1,6 +1,6 @@
 - name: Install Nodejs
   become: yes
-  pacman:
+  apt:
     name: 
       - nodejs
       - npm

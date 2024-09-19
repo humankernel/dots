@@ -20,18 +20,25 @@
     executable: /bin/bash
   tags: battery
 
-- name: Video Acceleration
-  become: yes
-  pacman: 
-    name: libva # Video Acceleration (VA) API for Linux
-    state: present
-  tags: video-acceleration
+- name: Detect NVIDIA GPU
+  command: 'lspci | grep -i nvidia'
+  register: nvidia_gpu
+  ignore_errors: yes
 
-# - name: Video Acceleration (nvidia)
+# - name: Video Acceleration (NVIDIA)
 #   become: yes
 #   pacman: 
 #     name: libva-nvidia-driver-git
 #     state: present
 #     executable: yay 
 #     extra_args: --builddir /var/cache/yay
+#   when: nvidia_gpu.rc == 0
+#   tags: video-acceleration
+
+# - name: Video Acceleration (Generic)
+#   become: yes
+#   pacman: 
+#     name: libva # Video Acceleration (VA) API for Linux
+#     state: present
+#   when: nvidia_gpu.rc != 0
 #   tags: video-acceleration

@@ -1,14 +1,17 @@
-- name: Install Nodejs in Archlinux
-  include_tasks: archlinux.yml
-  when: ansible_distribution == "Archlinux"
+- name: Install fnm
+  shell: 'curl -fsSL https://fnm.vercel.app/install | bash'
   tags: node
 
-- name: Install Nodejs in Ubuntu
-  import_tasks: ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
+- name: Source new fnm.fish file
+  shell: 'fish /home/strange/.config/fish/conf.d/fnm.fish'
   tags: node
 
-- name: Install Nodejs in Windows
-  import_tasks: windows.yml
-  when: ansible_distribution == "Windows"
+- name: Install nodejs Latest
+  shell: 'fnm install --latest'
+  args:
+    executable: /bin/bash
   tags: node
+
+# - name: Install Bun
+#   shell: 'curl -fsSL https://bun.sh/install | bash'
+#   tags: bun

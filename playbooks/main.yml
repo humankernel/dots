@@ -1,13 +1,14 @@
 - hosts: localhost
   tags:
-    - core   # 19mb - fzf rg bat btop eza man tldr gping
-    - aur    #   mb - yay
-    - fish   # 5mb  - fish starship
-    - nvim   # 8mb  - nvim
-    - ssh    # 6mb  - openssh
-    - podman # 36mb - podman
-    - node  
+    - core     # 19mb - fzf rg bat btop eza man tldr gping
+    - aur      #   mb - yay
+    - fish     # 5mb  - fish starship
+    - nvim     # 8mb  - nvim
+    - ssh      # 6mb  - openssh
+    - podman   # 36mb - podman
+    - node
     - browser  # 169mb - epiphany edge
+    - vscode   # 138mb - vscode
     - battery  
     - video-acceleration
     - hyprland
@@ -15,9 +16,10 @@
     - include_tasks: roles/core/main.yml     # core
     - include_tasks: roles/fish/main.yml     # fish
     - include_tasks: roles/nvim/main.yml     # nvim
-    # - include_tasks: roles/ssh/main.yml       # ssh
-    - include_tasks: roles/podman/main.yml       # podman
-    # - include_tasks: roles/node/main.yml       # node
-    # - include_tasks: roles/browser/main.yml       # browser
-    # - include_tasks: roles/optimize/main.yml       # optimize
-    # - include_tasks: hyprland.yml
+    - include_tasks: roles/podman/main.yml   # podman
+    - include_tasks: roles/node/main.yml     # node
+    # - include_tasks: roles/ssh/main.yml      # ssh
+    # - include_tasks: roles/browser/main.yml    # browser
+    # - include_tasks: roles/vscode/main.yml     # vscode
+    # - include_tasks: roles/optimize/main.yml   # optimize
+    # - include_tasks: roles/hyprland/main.yml   # hyprland

@@ -1,0 +1,15 @@
+- name: Install VSCode in Archlinux
+  include_tasks: archlinux.yml
+  when: ansible_distribution == "Archlinux"
+  tags: vscode
+
+- name: Build VSCode from source in Ubuntu
+  import_tasks: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+  tags: vscode
+
+# - name: Symlink VSCode dotfiles
+#   shell: 'stow -d ~/.dotfiles/home/ -S vscode -t {{ ansible_env.HOME }} --verbose=2 --adopt'
+#   register: result
+#   changed_when: 'result.stderr is search("LINK: ")'
+#   tags: vscode
