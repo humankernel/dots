@@ -1,10 +1,10 @@
 set fish_greeting ""
 set -gx TERM xterm-256color
+#fish_vi_key_bindings
 
 # ==================================
 #             ALIASES
 # ==================================
-
 alias v nvim
 
 alias gi "git init"
@@ -14,7 +14,7 @@ alias gc "git commit"
 alias gl "git log"
 
 if type -q xclip
-alias xclip "xclip -i -selection clipboard"
+    alias xclip "xclip -i -selection clipboard"
 end 
 
 alias ls "ls -p -G"
@@ -42,4 +42,3 @@ set -gx EDITOR nvim
 if type -q starship
 	starship init fish | source
 end
-starship init fish | source

@@ -5,17 +5,29 @@
     state: present
   tags: core
 
-- name: Download yay-bin
+- name: Check if yay is installed
+  ansible.builtin.command: pacman -Qs yay
+  register: yay_installed
+  ignore_errors: true
+  tags: check_yay
+
+- name: Download yay
   ansible.builtin.git:
     repo: 'https://aur.archlinux.org/yay-bin.git'
-    dest: ~/yay
+    dest: ~/yay-bin
     clone: yes
+  when: yay_installed.rc != 0
   tags: 
     - core
     - aur
 
 - name: Install yay
-  ansible.builtin.shell: cd yay-bin & makepkg -si
+  ansible.builtin.shell: 
+    cmd: makepkg -si --noconfirm
+    chdir: ~/yay-bin
+  args:
+    executable: /bin/bash
+  when: yay_installed.rc != 0
   tags: 
     - core
     - aur
@@ -34,7 +46,7 @@
       - man-db
       - tldr      # man
       - gping     # ping 
-      # - hyperfine # benchmarking tool
+      - hyperfine # benchmarking tool
       # - dust      # du (file-tree size) 
       # - duf       # df (file system manager)
       # - broot     # tree

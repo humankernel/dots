@@ -7,11 +7,6 @@
     state: present
   tags: fish
 
-- name: Setup fish as default shell
-  become: true
-  shell: 'chsh -s /usr/bin/fish {{ ansible_env.USER }}'
-  tags: fish
-
 - name: Initialize Starship prompt for fish
   lineinfile:
     path: ~/.config/fish/config.fish 

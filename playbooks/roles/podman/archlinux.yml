@@ -1,5 +1,8 @@
 - name: Install podman
   become: yes
   pacman:
-    name: podman
+    name: 
+      - podman
+      - crun
+      - podman-compose
     state: present

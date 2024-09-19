@@ -1,0 +1,87 @@
+- name: Update pkgs list
+  apt:
+    update_cache: yes
+
+- name: Install build-essential 
+  become: yes
+  apt: 
+    name: build-essential
+    state: present
+  tags: core
+
+# see: https://github.com/ibraheemdev/modern-unix
+- name: Install GNU tools
+  become: yes
+  apt:
+    name: 
+      - stow
+      - fzf       # fuzzy finder
+      - ripgrep   # grep
+      - bat       # cat
+      - btop      # top
+      - man-db
+      - tldr      # man
+      # - hyperfine # benchmarking tool
+      # - duf       # df (file system manager)
+      # - broot     # tree
+      
+      # - gping     # ping 
+      # - dust      # du (file-tree size) 
+      # - mcfly     # history
+    state: present
+  tags: core
+
+- name: (eza) Install GPG
+  apt:
+    name: gpg
+    state: present
+  tags: 
+    - core
+    - eza
+
+- name: (eza) Create keyrings directory
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
+  tags: 
+    - core
+    - eza
+
+- name: (eza) Download & Store GPG key
+  ansible.builtin.command:
+    cmd: wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+  tags: 
+    - core
+    - eza
+
+- name: (eza) Add eza repository
+  ansible.builtin.command:
+    cmd: echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | tee /etc/apt/sources.list.d/gierens.list
+  tags: 
+    - core
+    - eza
+
+- name: Update pkgs list - again
+  apt:
+    update_cache: yes
+  tags: 
+    - core
+    - eza
+
+- name: Install eza
+  apt:
+    name: eza
+    state: present
+  tags: 
+    - core
+    - eza
+
+# - name: Install `cheat` (cheatsheets)
+#   become: yes
+#   pacman: 
+#     name: cheat # interactive cheatsheets
+#     state: present
+#     executable: yay 
+#     extra_args: --builddir /var/cache/yay
+#   tags: core

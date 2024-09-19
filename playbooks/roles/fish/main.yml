@@ -8,8 +8,15 @@
   when: ansible_distribution == "Ubuntu"
   tags: fish
 
+- name: Setup fish as default shell
+  become: true
+  become_user: "{{ ansible_env.USER }}"
+  ansible.builtin.shell: 'chsh -s /usr/bin/fish {{ ansible_env.USER }}'
+  when: ansible_env.SHELL != '/usr/bin/fish'
+  tags: fish
+
 - name: Symlink Fish dotfiles
-  shell: 'stow -d ~/.dotfiles/home/ -S fish -t {{ ansible_env.HOME }} --verbose=2 --adopt'
+  ansible.builtin.shell: 'stow -d ~/.dotfiles/home/ -S fish -t {{ ansible_env.HOME }} --verbose=2 --adopt'
   register: result
   changed_when: 'result.stderr is search("LINK: ")'
   tags: fish

@@ -1,4 +1,4 @@
-- name: Ensure essentials
+- name: Ensure essentials for NeoVim
   become: yes
   pacman: 
     name: 
@@ -10,8 +10,8 @@
       - ripgrep
     state: present
 
-- name: Install nvim
+- name: Install NeoVim
   become: yes
   pacman:
-    name: nvim
+    name: neovim
     state: present

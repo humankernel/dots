@@ -1,6 +1,6 @@
 vars:
-  source_key: "./ssh/id_rsa"
-  dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+    source_key: "./ssh/id_rsa"
+    dest_key: "{{ ansible_env.HOME }}/.ssh/id_rsa"
 
 - name: Install openssh
   become: yes
@@ -32,10 +32,10 @@ vars:
     dest: "{{ dest_key }}"
     mode: 0600
   tags: ssh
-
+    
 - name: Set authorized key took from file
   authorized_key:
-    user: "{{ lookup('env', 'USER') }}"
+    user: ansible_env.USER
     state: present
-    key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa.pub"
+    key: "{{ ansible_env.HOME }}/.ssh/id_rsa.pub"
   tags: ssh
