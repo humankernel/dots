@@ -11,9 +11,12 @@ Just my Neovim dots
 - file manager: `Oil`
 - lsp: 
     - `nvim-lspconfig`
-    - language server installer: `mason`
-- cmp: `nvim-cmp`
-- which-key: shows available keybindings
+- lsp installer: `mason`
+- completions: `nvim-cmp`
+- formatting: `conform`
+- linting: `nvim-lint`
+- testing: 
+    - cp: `competitest`
 
 ## Issues
 

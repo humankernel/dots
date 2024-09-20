@@ -1,12 +1,4 @@
-
--- See `:help mapleader`
--- `mapleader` and `maplocalleader` must run before
--- loading lazy.nvim so that mappings are correct.
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
 -- See `:help vim.opt` or `:help option-list`
-
 -- encoding
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
@@ -58,7 +50,6 @@ vim.opt.undofile = true -- save undo history
 -- split
 vim.opt.splitbelow = true -- force all horizontal splits to go below current window
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
-
 
 vim.opt.mouse = "a" -- enable mouse mode
 vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time

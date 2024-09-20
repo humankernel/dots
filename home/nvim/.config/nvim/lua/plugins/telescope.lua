@@ -14,33 +14,40 @@ return {
 
         -- This plugin is also overriding dap internal ui, so running any dap command, which makes use of the internal ui, will result in a telescope prompt.
         -- see `https://github.com/nvim-telescope/telescope-dap.nvim`
+        -- 'nvim-telescope/telescope-dap.nvim',
+
+        -- It sets vim.ui.select to telescope
+        -- see: `https://github.com/nvim-telescope/telescope-ui-select.nvim`
+        "nvim-telescope/telescope-ui-select.nvim",
 
         -- icons, requires a Nerd Font
         "nvim-tree/nvim-web-devicons",
     },
-    opts = {
-        pickers = {
-            find_files = { theme = "dropdown" },
-        },
-        extensions = {
-            ['ui-select'] = { require('telescope.themes').get_dropdown {}, },
-            frecency = {
-                default_workspace = 'CWD',
-                show_scores = true,
-                show_unindexed = true,
-                disable_devicons = false,
-                ignore_patterns = {
-                    '*.git/*',
-                    '*/tmp/*',
-                    '*/lua-language-server/*',
+    config = function ()
+        require('telescope').setup {
+            pickers = {
+                find_files = { theme = "dropdown" },
+            },
+            extensions = {
+                ['ui-select'] = { require('telescope.themes').get_dropdown {}, },
+                frecency = {
+                    default_workspace = 'CWD',
+                    show_scores = true,
+                    show_unindexed = true,
+                    disable_devicons = false,
+                    ignore_patterns = {
+                        '*.git/*',
+                        '*/tmp/*',
+                        '*/lua-language-server/*',
+                    },
                 },
             },
-        },
-    },
-    config = function ()
+        }
+
         pcall(require('telescope').load_extension, 'fzf')
         pcall(require('telescope').load_extension, 'frecency')
         pcall(require('telescope').load_extension, 'lazy_plugins')
+        pcall(require('telescope').load_extension, 'ui-select')
 
         -- see `:help telescope.builtin`
         local builtin = require('telescope.builtin')
